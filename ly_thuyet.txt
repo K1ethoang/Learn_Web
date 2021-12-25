@@ -1,0 +1,107 @@
+                              LÀM QUEN CSS
+        có 3 cách cài đặt cho CSS
+1. Internal: nội bộ
+2. Inline: nội tuyến
+3. External: bên ngoài
+
+        CSS selection
+- CSS selectors là các cách chúng ta sử dụng để chọn ra các phần tử (elements) mà chúng ta muốn “style” cho chúng.
+ID & Class
+ID: là duy nhất -> không được được đặt trùng tên -> chỉ 1 phần tử
+cú pháp: # <tên id> vd: #first-heading
+
+Class: khi cần css cho nhiêu thẻ html cùng 1 lúc
+cú pháp: . <tên class>   vd: .other-heading
+
+
+        độ ưu tiên trong CSS
+1. Internal, External
+2. Inline - 1000
+3. #id - 100
+4. .class - 10
+5. tag - 1
+6. Equal specificity: dành cho các elements giống nhau nhưng điểm thuộc về elements mới nhất đc cập nhật
+7. Universal selection and inherited? - 0
+
+        đặt biến trong css
+tác dụng: bảo trì, sửa đổi code dễ dàng hơn
+phải tạo ra 1 class phụ
+cú pháp
+
+.root{
+  -- <tên biến>: <giá trị>;
+}
+<elements>{
+  <thuộc tính>: var(-- <tên biến);
+}
+vd: 
+:root {
+  --text-color: red;
+}
+
+.text {
+  color: var(--text-color);
+}
+
+          đơn vị trong css (dùng nhiều)
+đơn vị tuyệt đối (absolute): px...
+đơn vị tương đối (relative): %, rem, em, vw, vh...(thay đổi kích thước theo đối tượng nó phụ thuộc)
+
+mặc định 100% = 16px
+%: phụ thuộc vào thẻ chứa nó
+rem: phụ thuộc vào thẻ html (thường dùng)
+em: phụ thuộc vào thẻ gần nhất chứa nó và cùng 
+vw: viewport width (chiều ngang trình duyệt)
+vh: viewport height (chiều dài trình duyệt)
+                              LÀM QUEN VỚI CSS
+            css function
+var()
+linear-gradient()
+rgba(): trong suốT
+rgb():
+calc(): tính toán
+atr(): thuộc tính 
+url();           
+            css Pseudo classes
+  syntax:
+  selector:pseudo-class {
+  property: value;
+}
+
+:root: tham chiếu tới ptu gốc
+:hover: kích hoạt css khi đưa chuột đến
+:active: bấm chuột
+:first-child: select ptu đầu
+:last-child: select ptu cuối
+
+           css Pseudo classes
+phần tử giả: cú pháp:
+selector::pseudo-element {
+  property: value;
+}
+
+
+                              ĐỆM, VIỀN VÀ KHOẢNG LỀ
+padding: tăng kích thước element (theo chiều đồng hồ)
+border: tăng kích thước element (theo chiều đồng hồ)
+Margin: giống như căn lề trong word (theo chiều đồng hồ)
+box-sizing: auto tính toán để cho giống kích thước mong muốn, nhưng nếu quá lớn thì thằng này cũng bó tay :))
+
+
+                              THUỘC TÍNH TẠO NỀN
+background-clip: chọn vùng đổ background;
+background-image:
+background-size:
+background-origin:
+background-position:
+
+
+                              THUỘC TÍNH VỊ TRÍ
+position:
+  + relative: tương đối, lấy chính mình làm gốc toạ độ và không phụ thuộc vào cái gì khác
+  + absolute: tuyệt đối,
+  + fixed: phụ thuộc vào khung trình duyệt
+  + sticky: không khuyến cáo
+
+
+pixel nên chia hết cho 4 để tạo khoảng cách cho đẹp hơn
