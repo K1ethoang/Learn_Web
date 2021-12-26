@@ -23,7 +23,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "liveServer.settings.multiRootWorkspaceName": "Study_Web",
   // "cssPeek.enable": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

@@ -31,6 +31,7 @@ html {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 #nav {
@@ -112,7 +113,29 @@ html {
 }
 
 #slider {
+  position: relative;
   margin-top: 46px;
+  padding-top: 50%;
+  background: url("/study/html_css/W3_band/assets/img/slider/slider1.jpg") top
+    center / cover no-repeat;
+}
+
+#slider .text-content {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 47px;
+  color: #fff;
+}
+
+#slider .text-heading {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+#slider .text-description {
+  font-size: 15px;
 }
 
 #content {
