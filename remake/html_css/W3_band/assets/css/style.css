@@ -13,10 +13,15 @@ html {
 }
 
 #header {
+  position: fixed;
   height: 46px;
   background-color: #000;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 #nav {
+  display: inline-block;
 }
 
 #nav > li {
@@ -70,7 +75,27 @@ html {
   line-height: 38px;
 }
 
+#nav .angle-down-icon {
+  font-size: 14px;
+}
+
+#header .search-button {
+  float: right;
+  line-height: 46px;
+  padding: 0 21px;
+}
+#header .search-button:hover {
+  cursor: pointer;
+  background-color: crimson;
+}
+
+#header .search-icon {
+  color: #fff;
+  font-size: 20px;
+}
+
 #slider {
+  margin-top: 46px;
 }
 
 #content {
