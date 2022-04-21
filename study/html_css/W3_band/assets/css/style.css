@@ -6,6 +6,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -22,6 +23,7 @@ html {
 4. kiểu dáng (kiểu chữ, hình tròn, vuông...)  
 */
 
+/* common */
 .clear {
   clear: both;
 }
@@ -30,6 +32,68 @@ html {
   color: #fff !important;
 }
 
+.text-center {
+  text-align: center !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.btn {
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  display: inline-block;
+  padding: 11px 16px;
+  margin-top: 16px;
+  border: none;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.mt-8 {
+  margin-top: 8px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.col {
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.col-half {
+  width: 50%;
+}
+
+.col-third {
+  width: calc(100% / 3);
+}
+
+/* main */
 #main {
 }
 
@@ -153,7 +217,7 @@ html {
 /* About */
 #content .section-content {
   width: 800px;
-  padding: 64px 0;
+  padding: 64px 0 112px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -183,12 +247,6 @@ html {
 
 #content .members-list {
   margin-top: 48px;
-}
-
-#content .member-item {
-  text-align: center;
-  float: left;
-  width: calc(100% / 3);
 }
 
 #content .member-name {
@@ -238,13 +296,7 @@ html {
 
 /* tour place */
 .places-list {
-  padding-bottom: 46px;
-  margin: 36px -8px 0;
-}
-.place-item {
-  float: left;
-  width: calc(100% / 3);
-  padding: 8px 8px;
+  margin-top: 32px;
 }
 
 .place-img {
@@ -274,22 +326,6 @@ html {
 
 .place-description {
   margin-top: 16px;
-}
-
-.place-buy-btn {
-  color: #fff;
-  background-color: #000;
-  text-decoration: none;
-  display: inline-block;
-  padding: 11px 16px;
-  margin-top: 16px;
-  border: 0px;
-  cursor: pointer;
-}
-
-.place-buy-btn:hover {
-  color: #000;
-  background-color: #ccc;
 }
 
 /* Buy tickets modal */
@@ -363,6 +399,7 @@ html {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 24px;
+  outline-color: #009688;
 }
 #buy-tickets {
   width: 100%;
@@ -388,7 +425,64 @@ html {
   color: #2196f3;
 }
 
+/* contact form */
+
+.contact-content {
+  margin-top: 48px;
+}
+
+.contact-info {
+  font-size: 18px;
+}
+
+.contact-info i[class*="ti-"] {
+  width: 30px;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.contact-form {
+  font-size: 15px;
+}
+
+.contact-form .form-control {
+  width: 100%;
+  padding: 10px 9px;
+  border: 1px solid #ccc;
+}
+
+/* map section */
+.map-section img {
+  width: 100%;
+}
+
+/* footer section */
 #footer {
+  padding: 64px 16px;
+}
+
+#footer .socails-list {
+  font-size: 24px;
+}
+
+#footer .socails-list a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+#footer .copyright a:hover,
+#footer .socails-list a:hover {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#footer .copyright {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 15px;
+}
+
+#footer .copyright a {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 @keyframes modalFadeIn {
