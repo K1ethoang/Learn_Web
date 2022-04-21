@@ -122,7 +122,9 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="#" class="place-buy-btn">Buy Tickets</a>
+                  <button class="place-buy-btn js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
               <div class="place-item">
@@ -137,7 +139,9 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="#" class="place-buy-btn">Buy Tickets</a>
+                  <button class="place-buy-btn js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
               <div class="place-item">
@@ -152,7 +156,9 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="#" class="place-buy-btn">Buy Tickets</a>
+                  <button class="place-buy-btn js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
               <div class="clear"></div>
@@ -167,7 +173,82 @@
         </div>
       </div>
 
+      <!-- Buy tickets modal -->
+      <div class="buy-tickets-modal js-modal">
+        <div class="buy-tickets-modal__contain js-modal-container">
+          <div class="buy-tickets-modal-close-btn js-modal-close">
+            <i class="ti-close"></i>
+          </div>
+          <header class="buy-tickets-modal__header">
+            <i class="ti-bag buy-tickets-heading-icon"></i>
+            Tickets
+          </header>
+          <div class="buy-tickets-modal__body">
+            <label for="tickets__quantity" class="buy-tickets-label">
+              <i class="ti-shopping-cart buy-tickets-label-icon"></i>
+              Tickets, $15 per person
+            </label>
+            <input
+              id="tickets__quantity"
+              type="text"
+              class="buy-tickets-input"
+              placeholder="How many?"
+            />
+            <label for="tickets__email" class="buy-tickets-label">
+              <i class="ti-user buy-tickets-label-icon"></i>
+              Send To
+            </label>
+            <input
+              id="tickets__email"
+              type="email"
+              class="buy-tickets-input"
+              placeholder="Enter email..."
+            />
+            <div class="buy-tickets-modal-pay-btn">
+              <button id="buy-tickets">PAY <i class="ti-check"></i></button>
+            </div>
+          </div>
+          <footer class="buy-tickets-modal__footer">
+            <p class="buy-tickets-modal__help">
+              Need
+              <a href="">help?</a>
+            </p>
+          </footer>
+        </div>
+      </div>
+
       <div id="footer"></div>
     </div>
+
+    <script>
+      const buyBtns = document.querySelectorAll(".js-buy-ticket");
+      const modal = document.querySelector(".js-modal");
+      const modalContain = document.querySelector(".js-modal-container");
+      const modalClose = document.querySelector(".js-modal-close");
+
+      // hàm hiển thị modal mua vé (thêm class open)
+      function showBuyTickets() {
+        modal.classList.add("open");
+      }
+
+      // lặp qua từng thẻ btn và nghe hành vi click
+      for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener("click", showBuyTickets);
+      }
+
+      // hàm ẩn modal mua vé (gỡ bỏ class open)
+      function hideBuyTickets() {
+        modal.classList.remove("open");
+      }
+
+      // nghe hành vi click vào button close
+      modalClose.addEventListener("click", hideBuyTickets);
+
+      modal.addEventListener("click", hideBuyTickets);
+
+      modalContain.addEventListener("click", function (event) {
+        event.stopImmediatePropagation();
+      });
+    </script>
   </body>
 </html>
