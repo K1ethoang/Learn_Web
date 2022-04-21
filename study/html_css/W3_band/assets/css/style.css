@@ -94,9 +94,6 @@ html {
 }
 
 /* main */
-#main {
-}
-
 #header {
   height: 46px;
   position: fixed;
@@ -209,9 +206,6 @@ html {
 
 #slider .text-description {
   font-size: 15px;
-}
-
-#content {
 }
 
 /* About */
