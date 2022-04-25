@@ -211,9 +211,12 @@ html {
 /* About */
 #content .section-content {
   width: 800px;
+  max-width: 100%;
   padding: 64px 0 112px;
   margin-left: auto;
   margin-right: auto;
+  padding-right: 16px;
+  padding-left: 16px;
 }
 
 #content .section-heading {

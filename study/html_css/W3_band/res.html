@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .pc,
+      .tablet,
+      .mobile {
+        font-size: 80px;
+        text-align: center;
+        display: none;
+      }
+
+      /* BREAK POINTS */
+      /* PC */
+      @media screen and (min-width: 1024px) {
+        .pc {
+          display: block;
+        }
+      }
+      /* TABLET */
+      @media screen and (min-width: 740px) and (max-width: 1023px) {
+        .tablet {
+          display: block;
+        }
+      }
+      /* MOBILE */
+      @media screen and (max-width: 739px) {
+        .mobile {
+          display: block;
+        }
+      }
+
+      /* 
+          PC: >= 1024px
+          TABLET: >=740px && < 1024px
+          MOBILE: < 740px
+
+      */
+    </style>
+  </head>
+  <body style="height: 1500px">
+    <h2 class="pc">PC</h2>
+    <h2 class="tablet">TABLET</h2>
+    <h2 class="mobile">MOBILE</h2>
+  </body>
+</html>
