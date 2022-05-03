@@ -22,7 +22,7 @@
           <li><a href="#tour">Tour</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
-            <a href="">
+            <a href="#">
               More
               <i class="nav-arrow-down-icon ti-angle-down"></i>
             </a>
@@ -34,11 +34,15 @@
           </li>
         </ul>
         <!-- End: nav -->
+
+        <!-- Begin: Mobile menu Button -->
+        <div id="mobile-menu" class="mobile-menu-btn">
+          <i class="menu-icon ti-menu"></i>
+        </div>
         <!-- Begin: Search Button -->
         <div class="search-button">
           <i class="search-icon ti-search"></i>
         </div>
-        <!-- End: Search Button -->
       </div>
 
       <div id="slider">
@@ -69,7 +73,7 @@
             ea commodo consequat.
           </p>
           <div class="row members-list">
-            <div class="col col-third text-center member-item">
+            <div class="col col-third mt-32 s-col-full text-center member-item">
               <div class="member-name">Name1</div>
               <img
                 src="./assets/img/band/member.jpg"
@@ -77,7 +81,7 @@
                 class="member-img"
               />
             </div>
-            <div class="col col-third text-center member-item">
+            <div class="col col-third mt-32 s-col-full text-center member-item">
               <div class="member-name">Name2</div>
               <img
                 src="./assets/img/band/member.jpg"
@@ -85,7 +89,7 @@
                 class="member-img"
               />
             </div>
-            <div class="col col-third text-center member-item">
+            <div class="col col-third mt-32 s-col-full text-center member-item">
               <div class="member-name">Name3</div>
               <img
                 src="./assets/img/band/member.jpg"
@@ -112,7 +116,7 @@
 
             <!-- Place -->
             <div class="row places-list">
-              <div class="col col-third place-item">
+              <div class="col col-third mt-16 s-col-full place-item">
                 <img
                   src="./assets/img/places/place1.jpg"
                   alt="New York"
@@ -124,10 +128,12 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <button class="btn js-buy-ticket">Buy Tickets</button>
+                  <button class="btn s-full-width js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
-              <div class="col col-third place-item">
+              <div class="col col-third mt-16 s-col-full place-item">
                 <img
                   src="./assets/img/places/place2.jpg"
                   alt="Paris"
@@ -139,10 +145,12 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <button class="btn js-buy-ticket">Buy Tickets</button>
+                  <button class="btn s-full-width js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
-              <div class="col col-third place-item">
+              <div class="col col-third mt-16 s-col-full place-item">
                 <img
                   src="./assets/img/places/place3.jpg"
                   alt="San Francisco"
@@ -154,7 +162,9 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <button class="btn js-buy-ticket">Buy Tickets</button>
+                  <button class="btn s-full-width js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
               <div class="clear"></div>
@@ -212,15 +222,15 @@
           <p class="section-sub-heading">Fan? Drop a note!</p>
 
           <div class="row contact-content">
-            <div class="col col-half contact-info">
+            <div class="col col-half s-col-full contact-info">
               <p><i class="ti-location-pin"></i>Chicago, US</p>
               <p><i class="ti-mobile"></i>Phone: +00 151515</p>
               <p><i class="ti-email"></i>Email: mail@mail.com</p>
             </div>
-            <div class="col col-half contact-form">
+            <div class="col col-half s-col-full contact-form">
               <form action="">
                 <div class="row">
-                  <div class="col col-half">
+                  <div class="col col-half s-col-full">
                     <input
                       type="text"
                       name=""
@@ -230,7 +240,7 @@
                       class="form-control"
                     />
                   </div>
-                  <div class="col col-half">
+                  <div class="col col-half s-col-full s-mt-8">
                     <input
                       type="email"
                       name=""
@@ -254,7 +264,7 @@
                   </div>
                 </div>
                 <input
-                  class="btn mt-16 pull-right"
+                  class="btn mt-16 pull-right s-full-width"
                   type="submit"
                   value="SEND"
                 />
@@ -311,6 +321,39 @@
       modalContain.addEventListener("click", function (event) {
         event.stopImmediatePropagation();
       });
+    </script>
+
+    <!-- mobile menu -->
+    <script>
+      var header = document.getElementById("header");
+      var mobileMenu = document.getElementById("mobile-menu");
+      var headerHeight = header.clientHeight;
+
+      // dong/mo mobile menu
+      mobileMenu.onclick = function () {
+        let isClose = header.clientHeight === headerHeight;
+        if (isClose) {
+          header.style.height = "auto";
+        } else {
+          header.style.height = null;
+        }
+      };
+
+      // Tu dong dong khi chon menu
+      var menuItems = document.querySelectorAll("#nav li a[href*='#']");
+
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].onclick = function (event) {
+          var isParentMenu =
+            this.nextElementSibling &&
+            this.nextElementSibling.classList.contains("subnav");
+          if (isParentMenu) {
+            event.preventDefault();
+          } else {
+            header.style.height = null;
+          }
+        };
+      }
     </script>
   </body>
 </html>

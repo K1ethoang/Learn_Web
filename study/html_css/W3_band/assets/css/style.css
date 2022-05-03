@@ -64,6 +64,14 @@ html {
   margin-top: 16px !important;
 }
 
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mb-16 {
+  margin-bottom: 16px !important;
+}
+
 .row {
   margin-left: -8px;
   margin-right: -8px;
@@ -166,6 +174,14 @@ html {
   font-size: 14px;
 }
 
+.mobile-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+.mobile-menu-btn,
 #header .search-button {
   float: right;
   line-height: 46px;
@@ -177,6 +193,7 @@ html {
   background-color: #f44336;
 }
 
+.menu-icon,
 #header .search-icon {
   font-size: 20px;
   color: #fff;
@@ -243,7 +260,7 @@ html {
 }
 
 #content .members-list {
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 #content .member-name {
@@ -293,7 +310,7 @@ html {
 
 /* tour place */
 .places-list {
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 .place-img {
@@ -334,6 +351,7 @@ html {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.25);
   display: none;
+  z-index: 9999;
   justify-content: center;
   align-items: center;
 }

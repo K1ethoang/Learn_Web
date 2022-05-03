@@ -105,3 +105,13 @@ position:
 
 
 pixel nên chia hết cho 4 để tạo khoảng cách cho đẹp hơn
+
+responsive
+/* 
+          PC: >= 1024px
+          TABLET: >=740px && < 1024px
+          MOBILE: < 740px
+
+ */
+
+ tối thiểu 42 - 48px thì ngón tay mới dễ dàng tương tác
