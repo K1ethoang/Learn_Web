@@ -48,6 +48,7 @@ html {
   padding: 11px 16px;
   margin-top: 16px;
   border: none;
+  -webkit-appearance: none;
 }
 
 .btn:hover {
@@ -203,7 +204,7 @@ html {
   position: relative;
   margin-top: 46px;
   padding-top: 50%;
-  background: url("/study/html_css/W3_band/assets/img/slider/slider1.jpg") top
+  background: url("/assets/img/slider/slider1.jpg") top
     center / cover no-repeat;
 }
 
@@ -454,6 +455,15 @@ html {
   width: 30px;
   display: inline-block;
   line-height: 1.5;
+}
+
+.contact-info a {
+  color: #3e2fee;
+  opacity: 0.8;
+}
+
+.contact-info a:hover {
+  opacity: 1;
 }
 
 .contact-form {

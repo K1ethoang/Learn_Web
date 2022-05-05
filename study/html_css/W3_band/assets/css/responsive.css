@@ -3,6 +3,36 @@
 }
 
 /* TABLET && MOBILE */
+@media screen and (max-width: 1023px) {
+  .btn {
+    padding: 16px 16px;
+  }
+
+  #nav .subnav a {
+    padding: 5px 12px;
+  }
+
+  .contact-info {
+    line-height: 2;
+  }
+
+  .contact-form .form-control {
+    padding: 15px 9px;
+  }
+
+  #footer .socails-list {
+    font-size: 32px;
+  }
+
+  #footer .socails-list a {
+    padding: 0px 8px;
+  }
+
+  #footer .copyright a {
+    padding: 12px 0;
+    display: inline-block;
+  }
+}
 
 /* TABLET */
 @media screen and (min-width: 740px) and (max-width: 1023px) {
@@ -70,6 +100,6 @@
   }
 
   .contact-form {
-    margin-top: 16px;
+    margin-top: 32px;
   }
 }
