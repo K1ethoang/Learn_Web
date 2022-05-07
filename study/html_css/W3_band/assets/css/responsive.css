@@ -1,9 +1,9 @@
 /* PC */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 64em) {
 }
 
 /* TABLET && MOBILE */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 63.9375em) {
   .btn {
     padding: 16px 16px;
   }
@@ -35,11 +35,11 @@
 }
 
 /* TABLET */
-@media screen and (min-width: 740px) and (max-width: 1023px) {
+@media screen and (min-width: 46.25em) and (max-width: 63.9375em) {
 }
 
 /* MOBILE */
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 46.1875em) {
   .s-full-width,
   .s-col-full {
     width: 100% !important;
