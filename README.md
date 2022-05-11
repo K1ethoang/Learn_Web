@@ -176,3 +176,59 @@ selector::pseudo-element {
 > **Tối thiểu 42 - 48px thì ngón tay mới dễ dàng tương tác**
 
 # 7. Quy ước đặt tên biến (clas bem)
+
+## 7.1. BEM
+
+- Là tiêu chuẩn đặt tên class khi viết CSS
+
+## 7.2. Ý nghĩa
+
+- Viết tắt của: Block Element Modifier
+- Block: Khối
+- Element: Phần tử
+- Modifier: Bổ sung ý nghĩa cho `Block` hoặc `Element`
+
+## 7.3. Tại sao phài dùng BEM
+
+- Mỗi người đặt một kiểu
+- Members đặt class trùng nhau, CSS đè lên nhau
+
+## 7.4. Cú pháp
+
+- .block
+- .block\_\_element
+
+- .block--modifier
+- .block\_\_element--modifier
+
+- Vd:
+  - .card // block
+  - .card\_\_heading // element
+  - .card--error // block--modifier
+
+## 7.5. Tính ứng dụng
+
+- Xây dựng layout web ( bố cục)
+- Xây dựng thành phần web
+
+## 7.6. Ưu điểm
+
+- Tái xử dụng dễ dàng
+- Tính rõ dàng
+- Giúp cả team làm việc với nhau ổn hơn
+- Tính modul, không lo css class này ảnh hưởng đến class khác
+
+## 7.7. Nhược điểm
+
+- Tên class dài
+- Nhiều bố cho rằng là xấu
+
+## 7.8. Khi nào dùng BEM phù hợp
+
+- Dự án nhiều members
+- Dự án lớn, số lượng page nhiều hoặc số thành phần trên giao diện nhiều
+
+## 7.9. Thực hành
+
+- Làm button
+- Làm message
