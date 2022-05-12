@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a1a8e6198a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="toast"></div>
+
+    <div>
+      <button onclick="showSuccessToast();" class="btn btn--success">
+        GO TO NEXT APPROAVAL
+      </button>
+      <button onclick="showErrorToast();" class="btn btn--error">
+        TRY AGAIN
+      </button>
+    </div>
+
+    <script>
+      // toast function
+      function toast({
+        title = "",
+        message = "",
+        type = "info",
+        duration = 3000,
+      }) {
+        let main = document.getElementById("toast");
+        if (main) {
+          const toast = document.createElement("div");
+
+          const icons = {
+            success: "fa-solid fa-circle-check",
+            info: "fa-solid fa-circle-info",
+            warning: "fa-solid fa-circle-exclamation",
+            error: "fa-solid fa-circle-exclamation",
+          };
+
+          const icon = icons[type];
+          toast.classList.add("toast", `toast--${type}`);
+
+          var outTimeAnimation = 1000;
+          const delay = (duration / 1000).toFixed(2);
+
+          toast.style.animation = `slideInLeft ease 0.3s, fadeOut linear ${(
+            outTimeAnimation / 1000
+          ).toFixed(2)}s ${delay}s forwards`;
+          toast.innerHTML = `
+                <div class="toast__icon">
+              <i class="${icon}"></i>
+                </div>
+                <div class="toast__body">
+                  <h3 class="toast__title">${title}</h3>
+                  <p class="toast__msg">
+                    ${message}
+                  </p>
+                </div>
+                <div class="toast__close"><i class="fa-solid fa-xmark"></i></div>
+              `;
+
+          // Add toast
+          main.appendChild(toast);
+
+          // Remove toast when click
+          toast.onclick = function (e) {
+            if (e.target.closest(".toast__close")) {
+              main.removeChild(toast);
+              clearTimeout(autoRemoveId);
+            }
+          };
+
+          // Auto remove toast
+          const autoRemoveId = setTimeout(function () {
+            main.removeChild(toast);
+          }, outTimeAnimation + duration);
+          console.log(autoRemoveId);
+        }
+      }
+
+      function showSuccessToast() {
+        toast({
+          title: "Thành công",
+          message: "Bạn đã  trở thành người yêu mình.",
+          type: "success",
+          duration: 3000,
+        });
+      }
+
+      function showErrorToast() {
+        toast({
+          title: "Thất bại",
+          message: "Bạn mãi mãi không có được mình đou.",
+          type: "error",
+          duration: 3000,
+        });
+      }
+    </script>
+  </body>
+</html>
