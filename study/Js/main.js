@@ -1,3 +1,7 @@
-var myString = "Hoang Gia Kiet";
+var array = ["PHP", "C++", "Java"];
 
-console.log(myString.length);
+function getFirstElement(array) {
+  return array[0];
+}
+
+console.log(getFirstElement(array));

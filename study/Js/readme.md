@@ -119,10 +119,15 @@ var myObject = {
 
 # 3. String
 
-- Key word:
+- **Key word:**
+
+  ```
   - Javascript String Methods
   - Biểu thức chính quy
+  ```
+
   - Syntax:
+
   ```js
   /<content>/g;
   ```
@@ -148,6 +153,12 @@ var myObject = {
 
 # 4. Kiểu dữ liệu số (number)
 
+- **Key word:**
+
+  ```
+  - Javascript Number Methods
+  ```
+
 <details>
 <summary> Methods </summary>
 
@@ -161,6 +172,9 @@ var myObject = {
 | Number.prototype.toString() | Chuyển đổi và trả về số đã cho dưới dạng chuỗi                                              |
 
 </details>
+
+<details>
+<summary>Code </summary>
 
 ```js
 Number.isFinite(2 / 0); // false
@@ -197,3 +211,68 @@ numberObject.toFixed(6); // '1234.567890'
 (18).toString(); // '18'
 (17.3).toString(); // '17.3'
 ```
+
+</details>
+
+## Toán tử so sánh II
+
+```
+== -> so sánh value
+=== -> so sánh value & data type
+```
+
+# 4. Array
+
+- **Key word:**
+
+  ```
+  - Javascript Array Methods
+  ```
+
+<details>
+<summary>Open </summary>
+
+## 4.1. Cách tạo
+
+```js
+var languages = [
+  "C++",
+  "C",
+  "Js",
+  "C#",
+  "Java",
+  null,
+  undefined,
+  Object,
+  function () {},
+];
+```
+
+- Kiểm tra Array có phải array không?
+
+```js
+console.log(Array.isArray(languages));
+```
+
+</details>
+
+## 4.2. Làm việc với array
+
+<details>
+<summary> Methods </summary>
+
+| Method   | Description                                                                                                                            |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| toString | chuyển kiểu dữ liệu thành string                                                                                                       |
+| join     | biến array thành 1 chuỗi (thêm tham số để định dạng ngăn cách)                                                                         |
+| pop      | xoá phần tử cuói mảng và trả về giá trị của phần tử vừa xoá (nếu mảng trống mà pop() thì sẽ trả về `underfined`)                       |
+| push     | thêm 1 hoặc nhiều phần tử vào cuối mảng và trả về độ dài của mảng                                                                      |
+| shift    | xoá phần tử đầu mảng và trả về giá trị của phần tử vừa xoá (nếu mảng trống mà pop() thì sẽ trả về `underfined`)                        |
+| unshift  | thêm 1 hoặc nhiều phần tử vào đàu mảng và trả về độ dài của mảng                                                                       |
+| splicing | xxoá/thêm ở vị trí bất kì (tham số 1: vị trí bắt đầu, tham số 2: số phần tử cần xoá, tham số 3: giá trị cần thêm (có thể thêm nhiều) ) |
+| concat   | nỗi mảng (tham số là mảng cần nối vào sau)                                                                                             |
+| slicing  | cắt phần tử                                                                                                                            |
+
+</details>
+
+# 4. Object
