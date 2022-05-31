@@ -221,7 +221,7 @@ numberObject.toFixed(6); // '1234.567890'
 === -> so sánh value & data type
 ```
 
-# 4. Array
+# 5. Array
 
 - **Key word:**
 
@@ -232,7 +232,7 @@ numberObject.toFixed(6); // '1234.567890'
 <details>
 <summary>Open </summary>
 
-## 4.1. Cách tạo
+## 5.1. Cách tạo
 
 ```js
 var languages = [
@@ -256,7 +256,7 @@ console.log(Array.isArray(languages));
 
 </details>
 
-## 4.2. Làm việc với array
+## 5.2. Làm việc với array
 
 <details>
 <summary> Methods </summary>
@@ -275,4 +275,96 @@ console.log(Array.isArray(languages));
 
 </details>
 
-# 4. Object
+# 6. Object
+
+<details>
+<summary> 6.1. Thêm key (Method) - values (Property) </summary>
+
+- Có 2 cách:
+
+  - Cách 1:
+
+```js
+var myObject = {
+  name: "K1ethoang",
+  age: 19,
+  address: "Dong Nai, Viet Nam",
+  email: "kiethoang101.dev@gmail.com",
+};
+```
+
+- Cách 2:
+
+```js
+var emailKey = "email";
+
+var myObject = {
+  name: "K1ethoang",
+  age: 19,
+  address: "Dong Nai, Viet Nam",
+  [emailKey]: "kiethoang101.dev@gmail.com",
+};
+```
+
+  </details>
+
+<details>
+<summary> 6.2. Xoá key (Method) - values (Property) </summary>
+
+```js
+delete myObject.email;
+```
+
+```js
+delete myObject["email"];
+```
+
+  </details>
+
+<details>
+<summary> 6.3. Object Constructor </summary>
+
+```js
+function User(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+}
+
+var author = new User("Kiet", "Hoang", "Avatar");
+var user = new User("Hieu", "Nguyen", "Avatar");
+
+console.log(author);
+console.log(user);
+```
+
+```js
+function User(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+}
+
+var author = new User("Kiet", "Hoang", "Avatar");
+var user = new User("Hieu", "Nguyen", "Avatar");
+
+author.title = "Coder tại nhà";
+user.comment = "Hay quá anh ơi";
+
+console.log(author);
+console.log(user);
+```
+
+  </details>
+
+<details>
+<summary> 6.4. Object prototype </summary>
+
+<details>
+<summary> 6.4.1. Prototype là gì? </summary>
+
+- Prototype = Abstraction
+
+</details>
+
+</details>
