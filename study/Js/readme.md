@@ -360,11 +360,26 @@ console.log(user);
 <details>
 <summary> 6.4. Object prototype </summary>
 
-<details>
-<summary> 6.4.1. Prototype là gì? </summary>
+- Prototype là gì?
 
-- Prototype = Abstraction
+- Code:
 
-</details>
+```js
+function User(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+}
+
+User.prototype.className = "K1ethoang";
+User.prototype.getClassName = function () {
+  return this.className;
+};
+
+var author = new User("Kiet", "Hoang", "Avatar");
+
+console.log(author);
+console.log(author.getClassName());
+```
 
 </details>
