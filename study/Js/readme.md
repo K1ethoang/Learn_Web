@@ -17,6 +17,7 @@
 - [7. Loop](#7-loop)
 - [8. Array 2](#8-array-2)
   - [8.1. Array reduce() method](#81-array-reduce-method)
+- [9. Callback](#9-callback)
 
 # 1. Phân biệt kiểu biến var, let, và const
 
@@ -545,3 +546,40 @@ console.log(result); // output: 27811
 </details>
 
 ## 8.1. Array reduce() method
+
+<details>
+<summary> remake </summary>
+
+```js
+Array.prototype.reduce2 = function (callback, result) {
+  let i = 0;
+  if (arguments.length < 2) {
+    i = 1;
+    result = this[0];
+  }
+  for (; i < this.length; i++) {
+    result = callback(result, this[i], i, this);
+  }
+  return result;
+};
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const result = numbers.reduce2((total, number) => {
+  return total + number;
+});
+
+console.log(result);
+```
+
+</details>
+
+# 9. Callback
+
+- Khái niệm:
+  - Là hàm (function) được truyền qua đối số
+  - Khi gọi hàm khác
+- Điều kiện:
+
+  1. Là hàm
+  2. Được truyền qua đối số
