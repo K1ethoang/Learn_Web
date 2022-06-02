@@ -1,3 +1,23 @@
+- [1. Phân biệt kiểu biến var, let, và const](#1-phân-biệt-kiểu-biến-var-let-và-const)
+  - [1.1. Var](#11-var)
+  - [1.2. Let](#12-let)
+  - [1.3. Const](#13-const)
+- [2. Các loại function](#2-các-loại-function)
+  - [2.1. Declaration function](#21-declaration-function)
+  - [2.2. Expression function](#22-expression-function)
+  - [2.3. Arrow function](#23-arrow-function)
+- [3. String](#3-string)
+- [3.1. Thao tác cơ bản](#31-thao-tác-cơ-bản)
+- [4. Kiểu dữ liệu số (number)](#4-kiểu-dữ-liệu-số-number)
+  - [Toán tử so sánh II](#toán-tử-so-sánh-ii)
+- [5. Array](#5-array)
+  - [5.1. Cách tạo](#51-cách-tạo)
+  - [5.2. Làm việc với array](#52-làm-việc-với-array)
+- [6. Object](#6-object)
+- [7. Loop](#7-loop)
+- [8. Array 2](#8-array-2)
+  - [8.1. Array reduce() method](#81-array-reduce-method)
+
 # 1. Phân biệt kiểu biến var, let, và const
 
 <details>
@@ -383,3 +403,145 @@ console.log(author.getClassName());
 ```
 
 </details>
+
+# 7. Loop
+
+<details>
+<summary> Open </summary>
+
+1.  for - Lặp với điều kiện đúng
+2.  for/in - Lặp qua key của đối tượng
+3.  for/of - Lặp qua value của đối tượng
+4.  while - Lặp khi điều kiện đúng
+5.  do/while - Lặp ít nhất 1 lần, sau đó lặp khi điều kiện đúng
+
+</details>
+
+# 8. Array 2
+
+<details>
+<summary> Method </summary>
+
+- Đều có tham số truyền vào là 1 hàm
+
+| Method  | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| forEach | duyệt qua từng phần tử của mảng                                   |
+| every   | **tất cả** các phần tử thoả mãn 1 điều kiện (trả về kiểu boolean) |
+| some    | **chỉ cần 1** phần tử thoả mãn 1 điều kiện (trả về kiểu boolean)  |
+| find    | tìm kiếm và trả về phần tử tìm kiếm                               |
+| filter  | lọc các phần tử theo điều kiện                                    |
+| map     | Muốn thay đổi phần tử của mảng                                    |
+| reduce  | muốn nhận về 1 giá trị duy nhất                                   |
+
+  <details>
+  <summary> forEach() </summary>
+
+```js
+var arr = [100, 2000, 323, 4142, 1123];
+
+arr.forEach((value, index) => {
+  console.log(index, value);
+});
+```
+
+  </details>
+
+  <details>
+  <summary> every() </summary>
+
+```js
+var arr = [100, 2000, 323, 4142, 1123];
+
+var res = arr.every((value, index) => {
+  return value > 0;
+});
+
+console.log(res);
+```
+
+  </details>
+
+  <details>
+  <summary> some() </summary>
+
+```js
+var arr = [100, 2000, 323, 4142, 1123];
+
+var result = arr.some((value, index) => {
+  return value == 1123;
+});
+
+console.log(result);
+```
+
+  </details>
+
+  <details>
+  <summary> find() </summary>
+
+```js
+var arr = [100, 2000, 323, 4142, 1123];
+
+var result = arr.find((value, index) => {
+  return value == 323;
+});
+
+console.log(result);
+```
+
+  </details>
+
+  <details>
+  <summary> filter() </summary>
+
+```js
+var arr = [100, 2000, 323, 4142, 1123];
+
+var result = arr.filter((value, index) => {
+  return value % 2 == 0;
+});
+
+console.log(result);
+```
+
+  </details>
+
+  <details>
+  <summary> map() </summary>
+
+```js
+var arr = [100, 20123, 2000, 323, 4142, 1123];
+
+function test(value, index) {
+  return `Vị trí ${index}: ${value} đồng`;
+}
+
+var newArr = arr.map(test);
+
+console.log(newArr);
+```
+
+  </details>
+
+  <details>
+  <summary> reduce() </summary>
+
+```js
+var arr = [100, 20123, 2000, 323, 4142, 1123];
+
+// accumulator: biến lưu trữ
+function handle(accumulator, currentValue) {
+  return accumulator + currentValue;
+}
+
+var result = arr.reduce(handle, 0); // 0: initial value
+
+console.log(result); // output: 27811
+```
+
+  </details>
+
+</details>
+
+## 8.1. Array reduce() method
