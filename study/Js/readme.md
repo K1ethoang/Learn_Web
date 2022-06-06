@@ -1,3 +1,4 @@
+- [I. Content](#i-content)
 - [1. Phân biệt kiểu biến var, let, và const](#1-phân-biệt-kiểu-biến-var-let-và-const)
   - [1.1. Var](#11-var)
   - [1.2. Let](#12-let)
@@ -17,6 +18,10 @@
 - [7. Loop](#7-loop)
 - [8. Array 2](#8-array-2)
 - [9. Callback](#9-callback)
+- [II. Bonus](#ii-bonus)
+- [1. ASYNC (bất đồng bộ)](#1-async-bất-đồng-bộ)
+
+# I. Content
 
 # 1. Phân biệt kiểu biến var, let, và const
 
@@ -411,6 +416,9 @@ console.log(author.getClassName());
 
 1.  for - Lặp với điều kiện đúng
 2.  for/in - Lặp qua key của đối tượng
+
+    - Duyệt qua cả những property và method của prototype nằm trong Object
+
 3.  for/of - Lặp qua value của đối tượng
 4.  while - Lặp khi điều kiện đúng
 5.  do/while - Lặp ít nhất 1 lần, sau đó lặp khi điều kiện đúng
@@ -545,6 +553,17 @@ console.log(result); // output: 27811
 </details>
 
 <details>
+
+# 9. Callback
+
+- Khái niệm:
+  - Là hàm (function) được truyền qua đối số
+  - Khi gọi hàm khác
+- Điều kiện:
+
+  1. Là hàm
+  2. Được truyền qua đối số
+
 <summary> remake </summary>
 
 ```js
@@ -578,37 +597,36 @@ var games = [
 
 // forEach
 Array.prototype.forEach2 = function (callBack) {
-  var length = this.length;
-
-  for (let i = 0; i < length; i++) {
-    callBack(this[i], i);
+  for (let index in this) {
+    if (this.hasOwnProperty(index)) {
+      callBack(this[index], index, this);
+    }
   }
 };
 
 // every
 Array.prototype.every2 = function (callBack) {
-  var output,
-    length = this.length;
-
-  for (let i = 0; i < length; i++) {
-    if (callBack(this[i], i)) {
-      output = true;
-    } else {
-      output = false;
-      break;
+  var output;
+  for (let index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callBack(this[index], index, this)) {
+        output = true;
+      } else {
+        output = false;
+        break;
+      }
     }
   }
-
   return output;
 };
 
 // some
 Array.prototype.some2 = function (callBack) {
-  length = this.length;
-
-  for (let i = 0; i < length; i++) {
-    if (callBack(this[i], i)) {
-      return true;
+  for (let index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callBack(this[index], index, this)) {
+        return true;
+      }
     }
   }
 
@@ -617,39 +635,38 @@ Array.prototype.some2 = function (callBack) {
 
 // find
 Array.prototype.find2 = function (callBack) {
-  var length = this.length;
-
-  for (let i = 0; i < length; i++) {
-    if (callBack(this[i], i)) {
-      return this[i];
+  for (let index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callBack(this[index], index, this)) {
+        return this[index];
+      }
     }
   }
 };
 
 // filter
 Array.prototype.filter2 = function (callBack) {
-  var output = [],
-    length = this.length;
-
-  for (let i = 0; i < length; i++) {
-    if (callBack(this[i], i)) {
-      output.push(this[i]);
+  var output = [];
+  for (let index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callBack(this[index], index, this)) {
+        output.push(this[index]);
+      }
     }
   }
-
   return output;
 };
 
 // map
 Array.prototype.map2 = function (callBack) {
-  var output = [],
-    length = this.length;
-
-  for (let i = 0; i < length; i++) {
-    var result = callBack(this[i], i);
-    output.push(result);
+  var output = [];
+  for (let index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callBack(this[index], index, this)) {
+        output.push(this[index]);
+      }
+    }
   }
-
   return output;
 };
 
@@ -671,9 +688,10 @@ Array.prototype.reduce2 = function (callBack, initialValue) {
   return result;
 };
 
-// test
-var result = games.find2(function (game) {
-  return game;
+games.length = 100;
+
+var result = games.some2(function (game) {
+  return game.language == "Java";
 });
 
 console.log(result);
@@ -681,12 +699,8 @@ console.log(result);
 
 </details>
 
-# 9. Callback
+# II. Bonus
 
-- Khái niệm:
-  - Là hàm (function) được truyền qua đối số
-  - Khi gọi hàm khác
-- Điều kiện:
+# 1. ASYNC (bất đồng bộ)
 
-  1. Là hàm
-  2. Được truyền qua đối số
+- [async](https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw)
