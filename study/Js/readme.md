@@ -18,6 +18,9 @@
 - [7. Loop](#7-loop)
 - [8. Array 2](#8-array-2)
 - [9. Callback](#9-callback)
+- [10. DOM (Document Object Model)](#10-dom-document-object-model)
+  - [10.1. innerText & textContent](#101-innertext--textcontent)
+  - [10.2. Node properties](#102-node-properties)
 - [II. Bonus](#ii-bonus)
 - [1. ASYNC (bất đồng bộ)](#1-async-bất-đồng-bộ)
 
@@ -552,8 +555,6 @@ console.log(result); // output: 27811
 
 </details>
 
-<details>
-
 # 9. Callback
 
 - Khái niệm:
@@ -563,6 +564,8 @@ console.log(result); // output: 27811
 
   1. Là hàm
   2. Được truyền qua đối số
+
+  <details>
 
 <summary> remake </summary>
 
@@ -698,6 +701,44 @@ console.log(result);
 ```
 
 </details>
+
+# 10. DOM (Document Object Model)
+
+## 10.1. innerText & textContent
+
+<details>
+<summary>Code</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="heading-test">
+      <span style="display: none">heading</span>
+      <br />
+      <span>text</span>
+    </h1>
+
+    <script>
+      var heading = document.querySelector(".heading-test");
+
+      console.log(heading.innerHTML);
+      console.log(heading.innerText);
+      console.log(heading.textContent);
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+## 10.2. Node properties
 
 # II. Bonus
 
