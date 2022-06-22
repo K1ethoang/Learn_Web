@@ -20,7 +20,8 @@
 - [9. Callback](#9-callback)
 - [10. DOM (Document Object Model)](#10-dom-document-object-model)
   - [10.1. innerText & textContent](#101-innertext--textcontent)
-  - [10.2. Node properties](#102-node-properties)
+  - [10.2. Event examples](#102-event-examples)
+  - [10.3. PreventDefault and StopPropagation](#103-preventdefault-and-stoppropagation)
 - [II. Bonus](#ii-bonus)
 - [1. ASYNC (bất đồng bộ)](#1-async-bất-đồng-bộ)
 
@@ -738,7 +739,193 @@ console.log(result);
 
 </details>
 
-## 10.2. Node properties
+## 10.2. Event examples
+
+<details>
+<summary> Code example </summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <input type="checkbox" />
+    <select>
+      <option value="1">Một</option>
+      <option value="2">Hai</option>
+      <option value="3">Ba</option>
+    </select>
+
+    <h2></h2>
+
+    <script>
+      var inputElement = document.querySelector('input[type="text"]');
+      var h2 = document.querySelector("h2");
+
+      inputElement.oninput = function (e) {
+        h2.innerText = `Text: ${e.target.value}`;
+      };
+
+      document.onkeyup = function (e) {
+        switch (e.which) {
+          case 27:
+            console.log("Exiting...");
+            break;
+        }
+      };
+
+      var checkboxElement = document.querySelector('input[type="checkbox"]');
+
+      var h22 = document.createElement("h2");
+
+      checkboxElement.onchange = function (e) {
+        h22.innerText = `Checkbox: ${e.target.checked}`;
+        document.body.appendChild(h22);
+      };
+
+      var selectElement = document.querySelector("select");
+
+      var h222 = document.createElement("h2");
+
+      selectElement.onchange = function (e) {
+        h222.innerText = `Select: ${e.target.value}`;
+        document.body.appendChild(h222);
+      };
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+## 10.3. PreventDefault and StopPropagation
+
+<details>
+<summary> Open </summary>
+
+<details>
+<summary> PreventDefault </summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a name="github" href="https://github.com/K1ethoang"> Github </a>
+    <br />
+    <a name="google" href="https://google.com"> Google </a>
+
+    <script>
+      var aElement = document.links;
+
+      for (let i of aElement) {
+        i.onclick = function (e) {
+          if (!e.target.href.startsWith("https://github.com/K1ethoang")) {
+            e.preventDefault();
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <style>
+      ul {
+        display: none;
+      }
+
+      input:focus ~ ul {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <input placeholder="Tìm kiếm" />
+    <ul>
+      <li>C</li>
+      <li>C++</li>
+      <li>C#</li>
+    </ul>
+    <script>
+      var ulElement = document.querySelector("ul");
+
+      ulElement.onmousedown = function (e) {
+        e.preventDefault();
+      };
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+<details>
+<summary> StopPropagation </summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <style>
+      ul {
+        display: none;
+      }
+
+      input:focus ~ ul {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      DIV
+
+      <button>CLick me!</button>
+    </div>
+    <script>
+      document.querySelector("div").onclick = function () {
+        console.log("DIV");
+      };
+
+      document.querySelector("button").onclick = function (e) {
+        e.stopPropagation();
+        console.log("Click me!");
+      };
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+</details>
 
 # II. Bonus
 

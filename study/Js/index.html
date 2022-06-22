@@ -6,22 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-  </head>
-  <body>
     <style>
-      .style {
-        background: red;
-        color: #fff;
-        text-transform: uppercase;
+      ul {
+        display: none;
+      }
+
+      input:focus ~ ul {
+        display: block;
       }
     </style>
+  </head>
+  <body>
+    <div>
+      DIV
 
-    <div class="heading">
-      <h1>heading</h1>
+      <button>CLick me!</button>
     </div>
+    <script>
+      document.querySelector("div").onclick = function () {
+        console.log("DIV");
+      };
 
-    <button>toggle</button>
-
-    <script src="main.js"></script>
+      document.querySelector("button").onclick = function (e) {
+        e.stopPropagation();
+        console.log("Click me!");
+      };
+    </script>
   </body>
 </html>
