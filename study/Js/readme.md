@@ -22,6 +22,11 @@
   - [10.1. innerText & textContent](#101-innertext--textcontent)
   - [10.2. Event examples](#102-event-examples)
   - [10.3. PreventDefault and StopPropagation](#103-preventdefault-and-stoppropagation)
+  - [10.4. Event listener](#104-event-listener)
+- [11. JSON, Fetch](#11-json-fetch)
+  - [11.1. JSON](#111-json)
+  - [11.2. Promise (sync, async)](#112-promise-sync-async)
+  - [11.3.](#113)
 - [II. Bonus](#ii-bonus)
 - [1. ASYNC (bất đồng bộ)](#1-async-bất-đồng-bộ)
 
@@ -298,9 +303,9 @@ console.log(Array.isArray(languages));
 | push     | thêm 1 hoặc nhiều phần tử vào cuối mảng và trả về độ dài của mảng                                                                      |
 | shift    | xoá phần tử đầu mảng và trả về giá trị của phần tử vừa xoá (nếu mảng trống mà pop() thì sẽ trả về `underfined`)                        |
 | unshift  | thêm 1 hoặc nhiều phần tử vào đàu mảng và trả về độ dài của mảng                                                                       |
-| splicing | xxoá/thêm ở vị trí bất kì (tham số 1: vị trí bắt đầu, tham số 2: số phần tử cần xoá, tham số 3: giá trị cần thêm (có thể thêm nhiều) ) |
+| splice   | xxoá/thêm ở vị trí bất kì (tham số 1: vị trí bắt đầu, tham số 2: số phần tử cần xoá, tham số 3: giá trị cần thêm (có thể thêm nhiều) ) |
 | concat   | nỗi mảng (tham số là mảng cần nối vào sau)                                                                                             |
-| slicing  | cắt phần tử                                                                                                                            |
+| slice    | cắt phần tử                                                                                                                            |
 
 </details>
 
@@ -566,7 +571,7 @@ console.log(result); // output: 27811
   1. Là hàm
   2. Được truyền qua đối số
 
-  <details>
+<details>
 
 <summary> remake </summary>
 
@@ -744,6 +749,8 @@ console.log(result);
 <details>
 <summary> Code example </summary>
 
+- Dùng khi muốn dùng luôn và không có nhu cầu gỡ bỏ
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -768,7 +775,7 @@ console.log(result);
       var inputElement = document.querySelector('input[type="text"]');
       var h2 = document.querySelector("h2");
 
-      inputElement.oninput = function (e) {
+      inputElement.onchange = function (e) {
         h2.innerText = `Text: ${e.target.value}`;
       };
 
@@ -893,15 +900,6 @@ console.log(result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-    <style>
-      ul {
-        display: none;
-      }
-
-      input:focus ~ ul {
-        display: block;
-      }
-    </style>
   </head>
   <body>
     <div>
@@ -924,6 +922,78 @@ console.log(result);
 ```
 
 </details>
+
+</details>
+
+## 10.4. Event listener
+
+<details> 
+<summary> Open </summary>
+
+- Xử lý nhiều việc khi 1 event xảy ra
+- Dùng khi có nhu cầu gỡ bỏ
+
+</details>
+
+# 11. JSON, Fetch
+
+## 11.1. JSON
+
+<details>
+<summary> Open </summary>
+
+- JSON (JavaScript Object Notation): là 1 định dạng dữ liệu
+- Hỗ thợ việc thể hiện dữ liệu:
+  - String `"Hello World!"` `"K1ethoang"`
+  - Number `42` `23` `09`
+  - Boolean `true` `false`
+  - The value `null`
+  - Array `[1,2,3]` `["Hello"` `"World"]`
+  - Object `{"key": "value"}` `{"age": 30}`
+
+```
+- stringify: Javascript type -> JSON
+- parse: JSON -> javascript
+
+console.log(JSON.parse(users));
+console.log(JSON.stringify(users));
+```
+
+<details>
+<summary> JSON code </summary>
+
+```json
+[
+  {
+    "name": "Kiet Hoang Gia",
+    "age": 19,
+    "hobbies": ["game", "code"],
+    "Student": true
+  },
+  {
+    "name": "Cong Nguyen Thanh",
+    "age": 18,
+    "hobbies": ["football", "code"],
+    "Student": false
+  }
+]
+```
+
+</details>
+
+</details>
+
+## 11.2. Promise (sync, async)
+
+<details>
+<summary> Open </summary>
+
+</details>
+
+## 11.3.
+
+<details>
+<summary> Open </summary>
 
 </details>
 
