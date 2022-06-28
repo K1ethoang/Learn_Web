@@ -988,6 +988,119 @@ console.log(JSON.stringify(users));
 <details>
 <summary> Open </summary>
 
+<details>
+<summary> Sync / Async </summary>
+
+- chạy theo luồng, tuần tự
+- thằng nào trước chạy trước, thằng nào sau chạy sau
+
+```js
+setTimeout(function () {
+  console.log("Dòng này sẽ in ra sau");
+}, 0);
+// setTimeout là tác vụ bất động bộ (async)
+
+console.log("Dòng này sẽ in ra trước"); // Đây là tác vụ đồng bộ (sync)
+```
+
+</details>
+
+<details>
+<summary> Nỗi đau (pain) </summary>
+
+- callback hell
+
+```js
+setTimeout(() => {
+  console.log(1); // Viec 1
+  setTimeout(() => {
+    console.log(2); // Viec 2
+    setTimeout(() => {
+      console.log(3); // Viec 3
+      setTimeout(() => {
+        console.log(4); // Viec 4
+        setTimeout(() => {
+          console.log(5); // Viec 5
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
+```
+
+</details>
+
+<details>
+<summary> Khái niệm (concept) </summary>
+
+- [Khái niệm (phút thứ: 12:20)](https://www.youtube.com/watch?v=_4F8ihblZFU)
+
+  > - promise là 1 khái niệm sinh ra giúp xử lý các thao tác async, trước khi có promise thì ta dùng callback mà callback thì có vấn đề là callback hell (code nó bị sâu, khó nhìn, khó code...)
+  > - thằng promise này được sinh ra trong phiên bản js mới hơn (ES6) và chúng ta có thể khắc phục tình trạng callback hell giúp code ta viết dễ đọc, dễ code hơn.
+
+- khi gọi `new Promise` nó sẽ gọi đến Executor Function trước khi nhận được cái đối tượng `myPromise`
+- Có 3 trạng thái:
+  - pending: chờ việc `thành công` hay `thất bại`, trạng thái đang rò rỉ bộ nhớ
+  - fulfilled: logic `thành công`
+  - rejected: logic `thất bại`
+
+```js
+myPromise
+  .then(function () {
+    // callback được gọi khi resolve() được gọi
+  })
+  .catch(function () {
+    // callback được gọi khi reject() được gọi
+  })
+  .finally(function () {
+    // callback đều được gọi khi 1 trong resolve() hoặc reject() được gọi
+    // được hiểu là khi xong, không cần biết là thành công hay thất bại
+  });
+```
+
+<details>
+<summary> Code </summary>
+
+```js
+var ageInput = Number.parseInt(prompt("Enter age > 18"));
+
+var myPromise = new Promise(
+  // Executor
+  function (resolve, reject) {
+    // logic
+    // Giải quyết (thành công): resolve()
+    // Từ chối (từ chối): reject()
+
+    if (ageInput > 18) {
+      resolve("Good job!");
+    } else {
+      let reason = new Error("Age muse be > 19");
+      reject(reason);
+    }
+  }
+);
+
+myPromise
+  .then(function (message) {
+    console.log(message);
+  })
+  .catch(function (reason) {
+    console.log(reason);
+  })
+  .finally(function () {
+    console.log("Done!");
+  });
+```
+
+</details>
+
+</details>
+
+<details>
+<summary> Chain </summary>
+
+</details>
+
 </details>
 
 ## 11.3.
