@@ -991,8 +991,11 @@ console.log(JSON.stringify(users));
 <details>
 <summary> Sync / Async </summary>
 
-- chạy theo luồng, tuần tự
-- thằng nào trước chạy trước, thằng nào sau chạy sau
+- Sync
+  - chạy theo luồng, tuần tự
+  - thằng nào trước chạy trước, thằng nào sau chạy sau
+- Async
+  -
 
 ```js
 setTimeout(function () {
