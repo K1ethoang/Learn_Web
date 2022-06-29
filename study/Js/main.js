@@ -1,28 +1,29 @@
-var ageInput = Number.parseInt(prompt("Enter age > 18"));
+// var myPromise = Promise.reject("Error");
 
-var myPromise = new Promise(
-  // Executor
-  function (resolve, reject) {
-    // logic
-    // Giải quyết (thành công): resolve()
-    // Từ chối (từ chối): reject()
+// myPromise
+//   .then((value) => {
+//     console.log("result: ", value);
+//   })
+//   .catch((reason) => {
+//     console.log("result: ", reason);
+//   });
 
-    if (ageInput > 18) {
-      resolve("Good job!");
-    } else {
-      let reason = new Error("Age muse be > 19");
-      reject(reason);
-    }
-  }
-);
+// -----------------------------------------------
 
-myPromise
-  .then(function (message) {
-    console.log(message);
-  })
-  .catch(function (reason) {
-    console.log(reason);
-  })
-  .finally(function () {
-    console.log("Done!");
-  });
+var promise1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve([1]);
+  }, 1000);
+});
+
+var promise2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve([2, 3]);
+  }, 3000);
+});
+
+Promise.all([promise1, promise2]).then((result) => {
+  const result1 = result[0];
+  const result2 = result[1];
+  console.log(result1.concat(result2));
+});

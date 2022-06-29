@@ -28,7 +28,8 @@
   - [11.2. Promise (sync, async)](#112-promise-sync-async)
   - [11.3.](#113)
 - [II. Bonus](#ii-bonus)
-- [1. ASYNC (bất đồng bộ)](#1-async-bất-đồng-bộ)
+- [1. Async](#1-async)
+- [2. Callback](#2-callback)
 
 # I. Content
 
@@ -994,8 +995,7 @@ console.log(JSON.stringify(users));
 - Sync
   - chạy theo luồng, tuần tự
   - thằng nào trước chạy trước, thằng nào sau chạy sau
-- Async
-  -
+- ## Async
 
 ```js
 setTimeout(function () {
@@ -1100,7 +1100,84 @@ myPromise
 </details>
 
 <details>
-<summary> Chain </summary>
+<summary> Chuỗi (Chain) </summary>
+
+- Chain: Tính chất chuỗi
+- cái kết quả trả về của function đằng trước lại là tham số đầu vào của function thứ 2
+- nếu `không return ra promise` thì sẽ chạy ngay `then` liền kề dưới nó. Còn ngược lại thì sẽ giải quyết cái `promise` đó trước rồi mới chạy cái `then` dưới
+
+<details>
+<summary> Code </summary>
+
+```js
+myPromise
+  .then(function () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([1, 2, 3]);
+      }, 3000);
+    });
+  })
+  .then(function (data) {
+    console.log(data);
+    return 123;
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (reason) {
+    console.log(reason);
+  })
+  .finally(function () {
+    console.log("Done!");
+  });
+```
+
+</details>
+
+</details>
+
+<details>
+<summary> Methods (resolve, reject, all) </summary>
+
+- Có một số thư viện: output luôn luôn là một `promise`
+
+<details>
+<summary> Code </summary>
+
+```js
+// var myPromise = Promise.reject("Error");
+
+// myPromise
+//   .then((value) => {
+//     console.log("result: ", value);
+//   })
+//   .catch((reason) => {
+//     console.log("result: ", reason);
+//   });
+
+// -----------------------------------------------
+
+var promise1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve([1]);
+  }, 1000);
+});
+
+var promise2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve([2, 3]);
+  }, 3000);
+});
+
+Promise.all([promise1, promise2]).then((result) => {
+  const result1 = result[0];
+  const result2 = result[1];
+  console.log(result1.concat(result2));
+});
+```
+
+</details>
 
 </details>
 
@@ -1115,6 +1192,6 @@ myPromise
 
 # II. Bonus
 
-# 1. ASYNC (bất đồng bộ)
+# [1. Async](https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw)
 
-- [async](https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw)
+# [2. Callback](https://niithanoi.edu.vn/hieu-don-gian-ve-ham-callback-trong-javascript.html)
