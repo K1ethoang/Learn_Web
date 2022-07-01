@@ -1,0 +1,19 @@
+{
+  "games": [
+    {
+      "name": "Counter-Strike: Global Offensive",
+      "price": 0,
+      "id": 2
+    },
+    {
+      "name": "Tom Clancy's Rainbow Six Siege",
+      "price": "330000",
+      "id": 8
+    },
+    {
+      "name": "123123",
+      "price": "12312312",
+      "id": 9
+    }
+  ]
+}
