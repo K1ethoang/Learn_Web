@@ -69,7 +69,9 @@ function handlerUpdateGame(data, id) {
     .then((response) => {
       return response.json();
     })
-    .then(getGames(renderGames));
+    .then(() => {
+      getGames(renderGames);
+    });
 }
 
 function handlerGetGameToUpdate(id) {

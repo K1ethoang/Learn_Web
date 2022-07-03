@@ -27,12 +27,17 @@
   - [11.1. JSON](#111-json)
   - [11.2. Promise (sync, async)](#112-promise-sync-async)
   - [11.3. Fetch](#113-fetch)
-  - [11.4.](#114)
-  - [11.5.](#115)
+- [12. ECMAScript 6 (ES6 -> born: 2015)](#12-ecmascript-6-es6---born-2015)
+  - [12.1. Destructuring, Rest](#121-destructuring-rest)
+  - [12.2. Spread](#122-spread)
+  - [12.3. Tagged template literals](#123-tagged-template-literals)
+  - [12.4. Modules](#124-modules)
+  - [12.5. Optional chaining (?.)](#125-optional-chaining-)
 - [II. Bonus](#ii-bonus)
 - [1. Var, let and Const](#1-var-let-and-const)
 - [2. Callback](#2-callback)
 - [3. Async](#3-async)
+- [4. spread operator (...)](#4-spread-operator-)
 
 # I. Content
 
@@ -1217,17 +1222,226 @@ fetch(postApi)
 
 </details>
 
-## 11.4.
+# 12. ECMAScript 6 (ES6 -> born: 2015)
+
+## 12.1. Destructuring, Rest
 
 <details>
 <summary> Open </summary>
+
+<details>
+<summary> Destructuring </summary>
+
+```js
+// array
+var array = ["C", "C++", "Java"];
+
+var [a, b, c] = array;
+
+console.log(a, b, c);
+
+// object
+var course = {
+  name: "C++",
+  price: 1000,
+  image: "image-address",
+};
+
+var { name, price } = course;
+
+console.log(name, price);
+```
 
 </details>
 
-## 11.5.
+<details>
+<summary> Rest </summary>
+
+- Là toán tử rest:
+
+  - khi sử dụng với `destructuring`
+  - Khi sử dụng là tham số với `function`
+
+    ```js
+    // Do ở trước nó không có tham số nào nên nó lấy ra tất cả thằng còn lại
+    logger(1, 2, 3, 4);
+
+    function logger(...pagrams) {
+      console.log(pagrams); // output: 1, 2, 3, 4
+    }
+
+    function logger(a, b, ...pagrams) {
+      console.log(pagrams); // output: 3, 4
+    }
+    ```
+
+- **còn lại là toán tử `spread`**
+
+```js
+// array
+var array = ["C", "C++", "Java"];
+
+var [a, ...rest] = array;
+
+console.log(a);
+console.log(rest);
+
+// object
+var course = {
+  name: "C++",
+  price: 1000,
+  image: "image-address",
+  children: {
+    name: "Java",
+  },
+};
+
+var { name, ...rest } = course;
+console.log(name);
+console.log(rest);
+
+console.log("---------------------");
+
+var {
+  name: parentName,
+  children: { name: childrenName },
+} = course;
+
+console.log(parentName);
+console.log(childrenName);
+```
+
+</details>
+
+</details>
+
+## 12.2. Spread
 
 <details>
 <summary> Open </summary>
+
+- `...` trước cái biến `array` để bỏ dấu `[]`
+- khi gọi đến hàm là đối số
+
+  ```js
+  var array = [1, 2, 3, 4, 4];
+
+  logger(...array); // spread
+
+  function logger(...pagrams) {
+    console.log(pagrams); // output: 1, 2, 3, 4
+  }
+  ```
+
+<details>
+<summary> Code </summary>
+
+```js
+var array = ["C", "C++", "C#"];
+
+var array2 = ["HTML", "CSS"];
+
+var array3 = [...array2, ...array];
+
+console.log(array3);
+
+// object
+var obj1 = {
+  name: "C++",
+};
+
+var obj2 = {
+  price: 1000,
+};
+
+var obj3 = {
+  ...obj1,
+  ...obj2,
+};
+
+console.log(obj3);
+```
+
+</details>
+
+</details>
+
+## 12.3. Tagged template literals
+
+<details>
+<summary> Open code </summary>
+
+```js
+function highlight([first, ...strings], ...values) {
+  return values
+    .reduce(
+      (acc, curr) => {
+        return [...acc, `<span>${curr}</span>`, strings.shift()];
+      },
+      [first]
+    )
+    .join("");
+  // dùng phương pháp nối mảng với toán tử `...`
+}
+
+var game = "CSGO";
+var price = 1000;
+var store = "steam";
+
+const html = highlight`Mua game ${game} tại cửa hàng ${store} với giá ${price}`;
+
+console.log(html);
+```
+
+</details>
+
+## 12.4. Modules
+
+<details>
+<summary> Open </summary>
+
+- 1 `module` chỉ có 1 cái `export default`
+- [Xem code](../module/)
+
+</details>
+
+## 12.5. Optional chaining (?.)
+
+<details>
+<summary> Open </summary>
+
+- sử dụng khi chúng ta **nghi ngờ** 1 cái `key` nào đó của object không tồn tại -> dùng optional chaining
+- Không tin cái gì thì (?.) ở đằng trước
+- syntax
+
+```js
+obj.val?.prop;
+obj.val?.[expr];
+obj.arr?.[index];
+obj.func?.(args);
+```
+
+```js
+var obj = {
+  name: "kiet",
+  cat: {
+    name: "hieu",
+    cat2: {
+      name: "hieu2",
+      cat3: {
+        name: "hieu3",
+      },
+    },
+  },
+};
+
+if (
+  // không tin cat2
+  obj.cat?.cat2
+) {
+  console.log(obj.cat.cat2.name);
+}
+```
 
 </details>
 
@@ -1238,3 +1452,5 @@ fetch(postApi)
 # [2. Callback](https://niithanoi.edu.vn/hieu-don-gian-ve-ham-callback-trong-javascript.html)
 
 # [3. Async](https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw)
+
+# [4. spread operator (...)](https://viblo.asia/p/su-dung-spread-operator-trong-javascript-gDVK24welLj)
