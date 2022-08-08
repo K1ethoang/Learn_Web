@@ -1247,6 +1247,8 @@ var course = {
   image: "image-address",
 };
 
+// Để đổi tên ta dùng `:` 
+// var {name: name2, price} = course;
 var { name, price } = course;
 
 console.log(name, price);
